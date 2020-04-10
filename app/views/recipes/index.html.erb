@@ -1,0 +1,20 @@
+<h1>Recipe List</h1>
+<% @recipes.each do |recipe| %>
+    <h2> Recipe: <%= recipe.name %></h2>
+    <p> Ingredient count: <%= recipe.ingredient_count %></p>
+    <p> Ingredients: <%= recipe.ingredients %></p>
+    <p> Difficulty: <%= recipe.difficulty %></p>
+    <p> Instructions: <%= recipe.instructions %></p>
+        Tags: <%recipe.tags.each do |tag| %>
+            <%= "##{tag.name}"%>
+        <% end %><br>
+        <%= link_to "View Ratings", rating_path(recipe) %><br>
+<% end %>
+<br>
+<% if User.is_logged_in?(session) %>
+  <%= link_to "Back to profile", user_path(User.current_user(session)) %><br>
+  <%= link_to 'New recipe', new_recipe_path %>
+<% else %>
+  <%= link_to('Create an Account!', '/users/new') %><br>
+  <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<% end %>

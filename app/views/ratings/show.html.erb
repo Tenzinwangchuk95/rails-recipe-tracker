@@ -1,0 +1,8 @@
+<h1> Recipe Reviews </h1>
+<%= link_to "Write a review for this recipe!", new_recipe_rating_path(@recipe) %><br>
+<%= link_to "Back to recipes", recipes_path %>
+<% @ratings.each do |rating| %>
+    <p><h2>Reviewer:</h2><%= User.find(rating.user_id).user_name %><br>
+    <h2>Stars:</h2><%= rating.stars %><br>
+    <h2>Review:</h2><%= rating.description %><br></p>
+<% end %>

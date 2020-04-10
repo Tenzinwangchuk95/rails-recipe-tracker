@@ -1,0 +1,18 @@
+<%= form_for @recipe do |f| %>
+  <%= f.label :name, "Name:" %>
+  <%= f.text_field :name %><br>
+  <%= f.label :ingredient_count, "Number of ingredients:" %>
+  <%= f.number_field :ingredient_count %><br>
+  <%= f.label :ingredients, "Ingredients:" %>
+  <%= f.text_field :ingredients %><br>
+  Difficulty:
+  <%= f.label :difficulty, "Easy:", :checked => true %>
+  <%= f.radio_button :difficulty, "Easy" %>
+  <%= f.label :difficulty, "Medium:" %>
+  <%= f.radio_button :difficulty, "Medium" %>
+  <%= f.label :difficulty, "Hard:" %>
+  <%= f.radio_button :difficulty, "Hard" %><br>
+  <%= f.label :instructions, "Instructions" %><br>
+  <%= f.text_area :instructions %><br>
+  <%= f.submit "Submit Recipe" %>
+<% end %> 

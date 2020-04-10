@@ -1,0 +1,14 @@
+<h1> Add a new tag: </h1>
+
+<%= render "form" %>
+
+<% if @tag.errors.any? %>
+  <div id="error_explanation">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% @tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

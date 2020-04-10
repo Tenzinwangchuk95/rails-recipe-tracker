@@ -1,0 +1,7 @@
+<h1> All Reviews </h1>
+<% @ratings.each do |rating| %>
+    <h2>Recipe Name:</h2><%= Recipe.find(rating.recipe_id).name %>
+    <h2>Reviewer:</h2><%= User.find(rating.user_id).user_name %>
+    <h2>Stars:</h2><%= rating.stars %>
+    <h2>Review:</h2><%= rating.description %>
+<% end %>
