@@ -13,7 +13,7 @@ class RatingsController < ApplicationController
     end 
     
     def create
-        @rating = Rating.new(rating_params)
+        @rating = Rating.create(rating_params)
         @rating.user_id = User.current_user(session).id
         @rating.save
         redirect_to recipes_path
