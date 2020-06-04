@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
 
     def show
         @recipes = Recipe.where(user_id: params[:id])
-        @rating = Rating.find(params[:id])
+        #@rating = Rating.find(params[:id])
     end
 
     def new 
@@ -13,11 +13,15 @@ class RecipesController < ApplicationController
     end 
     
     def create
+    
         @recipe = Recipe.new(recipe_params)
         @user = User.current_user(session)
         @recipe.user = @user
-        @recipe.save
-        redirect_to recipe_path(@user)
+        if @recipe.save
+            redirect_to recipe_path(@user)
+        else
+            render :new
+        end
     end
 
     def edit
